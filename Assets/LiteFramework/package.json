@@ -5,6 +5,9 @@
   "displayName": "Lite Framework",
   "unity": "2022.3",
   "description": "Simple framework for unity.",
+  "dependencies": {
+   "com.unity.inputsystem": "1.7.0" 
+  },
   "samples": [
     {
       "displayName": "Sample",

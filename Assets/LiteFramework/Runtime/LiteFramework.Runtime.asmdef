@@ -15,7 +15,10 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "DOTWEEN",
+        "UNITASK_DOTWEEN_SUPPORT"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }

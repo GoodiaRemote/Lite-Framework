@@ -14,7 +14,7 @@ namespace LiteFramework.Editor
             EditorApplication.playModeStateChanged += LoadDefaultScene;
         }
         
-        [MenuItem("GadGame/Boot Scene/Play")]
+        [MenuItem("Lite Framework/Boot Scene/Play")]
         private static void PlayBootScene()
         {
             var prevScenePath = EditorSceneManager.GetActiveScene().path;

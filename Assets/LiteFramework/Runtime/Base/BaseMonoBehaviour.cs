@@ -41,6 +41,6 @@ namespace LiteFramework.Runtime.Base
         public void SetNodeActive(bool value)
         {
             gameObject.SetActive(value);
-        } 
+        }
     }
 }

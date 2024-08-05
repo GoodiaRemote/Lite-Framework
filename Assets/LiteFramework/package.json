@@ -1,9 +1,10 @@
 {
-  "name": "com.tiendat3699.liteframework",
+  "name": "com.GoodiaRemote.liteframework",
   "version": "1.0.0",
+  "author": { "name": "GoodiaRemote", "url": "https://github.com/GoodiaRemote" },
   "displayName": "Lite Framework",
   "unity": "2022.3",
-  "unityRelease": "20f1",
+  "description": "Simple framework for unity.",
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5",
     "com.gustavopsantos.reflex": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#8.5.1"

@@ -1,0 +1,18 @@
+{
+    "name": "LiteFramework.Editor",
+    "rootNamespace": "LiteFramework",
+    "references": [
+        "GUID:37493b80f9279e245bacee29823963aa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

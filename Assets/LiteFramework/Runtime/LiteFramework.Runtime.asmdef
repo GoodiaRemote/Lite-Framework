@@ -1,0 +1,21 @@
+{
+    "name": "LiteFramework.Runtime",
+    "rootNamespace": "LiteFramework",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:ac89e082d97ba234fba4a78b75a00495",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f",
+        "GUID:a3f79e2d25f22bf47b1289cf9d121332",
+        "GUID:029c1c1b674aaae47a6841a0b89ad80e",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

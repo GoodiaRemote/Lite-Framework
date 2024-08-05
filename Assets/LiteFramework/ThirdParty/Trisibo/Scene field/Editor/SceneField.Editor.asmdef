@@ -1,0 +1,18 @@
+{
+    "name": "SceneField.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a3f79e2d25f22bf47b1289cf9d121332"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

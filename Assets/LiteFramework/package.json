@@ -1,0 +1,17 @@
+{
+  "name": "com.tiendat3699.liteframework",
+  "version": "1.0.0",
+  "displayName": "Lite Framework",
+  "unity": "2022.3",
+  "unityRelease": "20f1",
+  "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5",
+    "com.gustavopsantos.reflex": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#8.5.1"
+  },
+  "samples": [
+    {
+      "displayName": "Sample",
+      "Example": "Example~"
+    }
+  ]
+}

@@ -6,8 +6,8 @@
   "unity": "2022.3",
   "description": "Simple framework for unity.",
   "dependencies": {
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5",
-    "com.gustavopsantos.reflex": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#8.5.1"
+    "com.cysharp.unitask": "2.5.5",
+    "com.gustavopsantos.reflex": "8.5.1"
   },
   "samples": [
     {

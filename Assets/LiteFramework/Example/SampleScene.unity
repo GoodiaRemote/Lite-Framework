@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 137946533}
   - component: {fileID: 137946532}
   - component: {fileID: 137946531}
-  - component: {fileID: 137946535}
+  - component: {fileID: 137946536}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -229,7 +229,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &137946535
+--- !u!114 &137946536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,10 +238,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 137946530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec282ee638594173b360ccc6dbfcc47f, type: 3}
+  m_Script: {fileID: 11500000, guid: 454c5db15d724da499e1762610bf6746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 0
+  _intVariable: {fileID: 11400000, guid: 719916bd6b3732741acf6bcec9b7e1fb, type: 2}
+  _stringVariable: {fileID: 11400000, guid: 471475c6ac2bf894195a583d006c8e23, type: 2}
+  _colorVariable: {fileID: 11400000, guid: bf09f5550f1d96c4781e04f8d27d6901, type: 2}
+  _vector2Variable: {fileID: 11400000, guid: 1252946996656874294bb697f987af7a, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +440,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119307037}
-  - component: {fileID: 2119307036}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -445,19 +447,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2119307036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119307035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee8aece4a0fb4861b9ee50916edc8a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pool: {_source: {fileID: 137946535}, _defaultCapacity: 10, _max: 1000}
 --- !u!4 &2119307037
 Transform:
   m_ObjectHideFlags: 0

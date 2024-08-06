@@ -1,12 +1,19 @@
 ﻿using System;
 using LiteFramework.Runtime.Base;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace LiteFramework.LiteFramework.Runtime.Variable
 {
-    public abstract class GenericVariable<T> : DescriptionSO
+    public abstract class GenericVariable:DescriptionSO
+    {
+        
+    }
+    
+    public abstract class GenericVariable<T> : GenericVariable
     {
         public T BaseValue;
-        private T _value;
+        [SerializeField, ReadOnly] private T _value;
             
         public T Value
         {

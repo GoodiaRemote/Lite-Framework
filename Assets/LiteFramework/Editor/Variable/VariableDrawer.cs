@@ -42,15 +42,17 @@ namespace LiteFramework.Editor.Variable
             EditorGUI.EndProperty();
         }
         
-        private float GetPreviewSpace(string type)
+        protected virtual float GetPreviewSpace(string type)
         {
             switch (type)
             {
-                case "Vector2":
-                case "Vector3":
-                    return 128;
-                default:
+                case "int":
+                case "float":
+                case "double":
+                case "Color":
                     return 58;
+                default:
+                    return 128;
             }
         }
     }

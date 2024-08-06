@@ -1,4 +1,4 @@
-using LiteFramework.LiteFramework.Runtime.Variable;
+using LiteFramework.Runtime.Variable;
 using UnityEditor;
 using UnityEngine;
 

@@ -1,4 +1,4 @@
-using LiteFramework.LiteFramework.Runtime.Variable.Type;
+using LiteFramework.Runtime.Variable.Type;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

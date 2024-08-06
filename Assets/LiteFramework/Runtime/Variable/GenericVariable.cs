@@ -3,7 +3,7 @@ using LiteFramework.Runtime.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace LiteFramework.LiteFramework.Runtime.Variable
+namespace LiteFramework.Runtime.Variable
 {
     public abstract class GenericVariable:DescriptionSO
     {

@@ -245,6 +245,8 @@ MonoBehaviour:
   _stringVariable: {fileID: 11400000, guid: 471475c6ac2bf894195a583d006c8e23, type: 2}
   _colorVariable: {fileID: 11400000, guid: bf09f5550f1d96c4781e04f8d27d6901, type: 2}
   _vector2Variable: {fileID: 11400000, guid: 1252946996656874294bb697f987af7a, type: 2}
+  _vector3Variable: {fileID: 11400000, guid: 653623eff6eece64aad286586861f578, type: 2}
+  _gameObjectVariable: {fileID: 11400000, guid: 5bc310d21a4319a4b8d919969380ba58, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ namespace LiteFramework.Runtime.ObjectPool
                 obj = CreateFunc();
             }
 
-            if (obj == null) return null;
+            if (obj is null) return null;
             _actives.Add(obj);
             ActionOnGet(obj);
             return obj;
@@ -125,7 +125,7 @@ namespace LiteFramework.Runtime.ObjectPool
 
         private T CreateFunc()
         {
-            if (_source != null)
+            if (_source is not null)
             {
                 var obj = Object.Instantiate(_source);
                 if (obj is IPoolale<T> iPool)

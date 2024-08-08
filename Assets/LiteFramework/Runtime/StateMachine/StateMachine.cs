@@ -69,7 +69,7 @@ namespace LiteFramework.Runtime.StateMachine
         public void Init()
         {
             _initialized = true;
-            if (StartBlockState != null)
+            if (StartBlockState is not null)
             {
                 ChangeState(StartBlockState.Hash);
             }
@@ -201,10 +201,10 @@ namespace LiteFramework.Runtime.StateMachine
         
         public void ChangeState(int nameHash)
         {
-            if (CurrentBlockState != null && CurrentBlockState.Hash == nameHash) return;
+            if (CurrentBlockState is not null && CurrentBlockState.Hash == nameHash) return;
             if (_stateBlocks.TryGetValue(nameHash, out var nextStateBlock))
             {
-                if (CurrentBlockState != null)
+                if (CurrentBlockState is not null)
                 {
                     _event = Event.Exit;
                     CurrentBlockState.State.StateExit();

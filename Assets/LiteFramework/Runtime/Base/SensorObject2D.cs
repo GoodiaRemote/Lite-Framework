@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Base
 {
-    public class SensorObject : BaseMonoBehaviour
+    public class SensorObject2D : BaseMonoBehaviour
     {
         [SerializeField] private Vector3 _offset;
         [SerializeField] private float _radius = 1;
@@ -33,7 +33,8 @@ namespace LiteFramework.Runtime.Base
             {
                 _timer = 0;
                 _hitCount = Physics2D.OverlapCircleNonAlloc(Position + _offset, _radius, _results, _layerMask);
-                OnSensor?.Invoke(_hitCount, _results.Where(c => c != null).ToArray());
+                OnSensor?.Invoke(_hitCount, _results.Where(c => c is not null).OrderBy(c=>
+                    (c.transform.position - transform.position).sqrMagnitude).ToArray());
             }
         }
         

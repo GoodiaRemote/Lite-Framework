@@ -16,6 +16,7 @@ namespace LiteFramework.Runtime.StateMachine.Mono.SO
             get
             {
                 var states = new List<string> { "None" };
+                if (_transitions == null) return states;
                 foreach (var transitionItem in _transitions)
                 {
                     if (!states.Contains(transitionItem.From.StateName))

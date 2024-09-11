@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Variable
 {
+    [DefaultExecutionOrder(-999)]
     public abstract class GenericVariable:DescriptionSO
     {
         
@@ -30,7 +31,21 @@ namespace LiteFramework.Runtime.Variable
 
         private void OnEnable()
         {
+            ResetToBaseValue();
+        }
+        
+        public void ResetToBaseValue()
+        {
             _value = BaseValue;
         }
+        
+#if UNITY_EDITOR
+        [InlineButton(nameof(ApplyValue))]
+        [NonSerialized, ShowInInspector] private T _newValue;
+        private void ApplyValue()
+        {
+            Value = _newValue;
+        }
+#endif
     }
 }

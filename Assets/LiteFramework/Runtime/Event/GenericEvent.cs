@@ -32,7 +32,7 @@ namespace LiteFramework.Event
 #endif
         }
         
-        [Button]
+        [Button(ButtonStyle.FoldoutButton)]
         public void Raise(T value)
         {
             _event?.Invoke(value);

@@ -44,9 +44,9 @@ namespace LiteFramework.Runtime.Input
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.matrix = ((RectTransform)transform.parent).localToWorldMatrix;
             Gizmos.color = Color.cyan;
-            GizmosHelper.DrawGizmoCircle(transform.position, _movementRange);
+            // Gizmos.matrix = transform.parent.localToWorldMatrix;
+            GizmosHelper.DrawGizmoCircle(_background.position, _movementRange);
         }
 
         private void Awake()

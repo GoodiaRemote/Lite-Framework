@@ -7,8 +7,9 @@ namespace LiteFramework.Runtime.ObjectPool
     public class Pool<T> where T: Object
     {
         [SerializeField] private T _source;
-        [SerializeField] private int _defaultCapacity = 10;
+        [SerializeField] private int _defaultCapacity = 100;
         [SerializeField] private int _max = 1000;
+        [SerializeField] private bool _expandable = false;
 
         private readonly Queue<T> _available;
         private readonly List<T> _actives;
@@ -25,11 +26,12 @@ namespace LiteFramework.Runtime.ObjectPool
             _all = new List<T>(_defaultCapacity);
         }
 
-        public Pool(T prefab, int defaultCapacity = 10, int max = 1000)
+        public Pool(T prefab, int defaultCapacity = 100, int max = 1000, bool expandable = false)
         {
             _source = prefab;
             _defaultCapacity = defaultCapacity;
             _max = max;
+            _expandable = expandable;
             _available = new Queue<T>(_defaultCapacity);
             _actives = new List<T>(_defaultCapacity);
             _all = new List<T>(_defaultCapacity);
@@ -37,19 +39,30 @@ namespace LiteFramework.Runtime.ObjectPool
 
         public T Get()
         {
-            T obj;
-            if (CountActive >= _max)
-            {
-                obj = _actives[0];
-                Release(obj);
-            }
+            T obj = null;
             if (CountInactive > 0)
             {
                 obj = _available.Dequeue();
             }
             else
             {
-                obj = CreateFunc();
+                if (CountActive < _max)
+                {
+                    obj = CreateFunc();
+                }
+                else
+                {
+                    if (_expandable)
+                    {
+                        obj = CreateFunc();
+                        _max++;
+                    }
+                    else
+                    {
+                        obj = _actives[0];
+                        Release(obj);
+                    }
+                }
             }
 
             if (obj is null) return null;
@@ -98,6 +111,7 @@ namespace LiteFramework.Runtime.ObjectPool
             
             _available.Clear();
             _actives.Clear();
+            _all.Clear();
         }
 
         private void ActionOnDestroy(T obj)

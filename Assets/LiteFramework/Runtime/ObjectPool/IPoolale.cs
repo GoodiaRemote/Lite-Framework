@@ -8,5 +8,6 @@ namespace LiteFramework.Runtime.ObjectPool
         public event Action<T> ReleaseEvent;
         void OnGet();
         void OnRelease();
+        void ReleaseToPool();
     }
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Collider")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Collider")]
     public class ColliderEvent : GenericEvent<Collider>
     {
         

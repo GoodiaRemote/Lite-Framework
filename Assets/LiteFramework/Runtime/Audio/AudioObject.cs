@@ -36,8 +36,8 @@ namespace LiteFramework.Runtime.Audio
 
         private void Awake()
         {
-            AttributeInjector.Inject(this, gameObject.scene.GetSceneContainer());
             _source = GetComponent<AudioSource>();
+            AttributeInjector.Inject(this, gameObject.scene.GetSceneContainer());
         }
 
 
@@ -58,11 +58,16 @@ namespace LiteFramework.Runtime.Audio
             _source.loop = false;
         }
 
+        public void ReleaseToPool()
+        {
+            ReleaseEvent?.Invoke(this);
+        }
+
         private void Update()
         {
             if (_releaseOnStop && _alive && !_source.isPlaying)
             {
-                ReleaseEvent?.Invoke(this);
+                ReleaseToPool();
             }
         }
 

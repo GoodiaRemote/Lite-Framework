@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Int")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Int")]
     public class IntEvent : GenericEvent<int>
     {
         

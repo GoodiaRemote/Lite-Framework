@@ -2,7 +2,7 @@
 
 namespace LiteFramework.Runtime.Variable.Type
 {
-    [CreateAssetMenu(menuName = "Variable/Float")]
+    [CreateAssetMenu(menuName = "LiteFramework/Variable/Float")]
     public class FloatVariable : GenericVariable<float>
     {
         

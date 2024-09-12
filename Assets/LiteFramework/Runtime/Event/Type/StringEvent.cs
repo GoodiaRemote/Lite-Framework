@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/String")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/String")]
     public class StringEvent : GenericEvent<string>
     {
         

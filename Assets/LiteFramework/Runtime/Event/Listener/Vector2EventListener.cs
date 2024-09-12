@@ -1,7 +1,7 @@
-﻿using LiteFramework.Event.Type;
+﻿using LiteFramework.Runtime.Event.Type;
 using UnityEngine;
 
-namespace LiteFramework.Event.Listener
+namespace LiteFramework.Runtime.Event.Listener
 {
     [AddComponentMenu("EventListener/"+ nameof(Vector2EventListener))]
     public class Vector2EventListener : GenericEventListener<Vector2>

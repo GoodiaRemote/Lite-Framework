@@ -2,7 +2,7 @@
 
 namespace LiteFramework.Runtime.Variable.Type
 {
-    [CreateAssetMenu(menuName = "Variable/Int")]
+    [CreateAssetMenu(menuName = "LiteFramework/Variable/Int")]
     public class IntVariable : GenericVariable<int>
     {
         

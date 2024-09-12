@@ -1,0 +1,11 @@
+﻿namespace GadGame.Define
+{
+	public static class MusicDefine
+	{
+$[backgroundMusicBody]
+	}
+    public static class SoundDefine
+    {
+$[soundEffectsBody]
+    }
+}

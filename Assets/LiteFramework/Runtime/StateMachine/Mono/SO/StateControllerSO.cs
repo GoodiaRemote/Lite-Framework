@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.StateMachine.Mono.SO
 {
-    [CreateAssetMenu(fileName = "New State Controller", menuName = "State Machine/State Controller", order = 0)]
+    [CreateAssetMenu(fileName = "New State Controller", menuName = "LiteFramework/State Machine/State Controller", order = 0)]
     public class StateControllerSO : ScriptableObject
     {
         [SerializeField, ValueDropdown(nameof(AllStates))] private string _startState = "None";

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Variable.Type
 {
-    [CreateAssetMenu(menuName = "Variable/Collision")]
+    [CreateAssetMenu(menuName = "LiteFramework/Variable/Collision")]
     public class CollisionVariable : GenericVariable<Collision>
     {
         

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.StateMachine.Mono.SO
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "State Machine/State", order = 0)]
+    [CreateAssetMenu(fileName = "New State", menuName = "LiteFramework/State Machine/State", order = 0)]
     public class StateSO : DescriptionSO
     {
         [SerializeField, Required, ValidateInput(nameof(ValidateName), "Name is invalid")] private string _stateName;

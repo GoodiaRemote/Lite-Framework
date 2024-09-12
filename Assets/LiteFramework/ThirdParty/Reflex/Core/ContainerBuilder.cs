@@ -19,7 +19,7 @@ namespace Reflex.Core
             var disposables = new DisposableCollection();
             var resolversByContract = new Dictionary<Type, List<IResolver>>();
 
-            // Inherit parent resolvers
+            // Inherited resolvers
             if (Parent != null)
             {
                 foreach (var kvp in Parent.ResolversByContract)
@@ -28,7 +28,7 @@ namespace Reflex.Core
                 }
             }
 
-            // Owned Resolvers
+            // Owned resolvers
             foreach (var binding in Bindings)
             {
                 disposables.Add(binding.Resolver);
@@ -102,16 +102,6 @@ namespace Reflex.Core
             return AddTransient(concrete, concrete);
         }
 
-        public ContainerBuilder AddTransient(object instance, params Type[] contracts)
-        {
-            return Add(instance.GetType(), contracts, new TransientValueResolver(instance));
-        }
-
-        public ContainerBuilder AddTransient(object instance)
-        {
-            return AddTransient(instance, instance.GetType());
-        }
-
         public ContainerBuilder AddTransient<T>(Func<Container, T> factory, params Type[] contracts)
         {
             var resolver = new TransientFactoryResolver(Proxy);
@@ -126,6 +116,34 @@ namespace Reflex.Core
         public ContainerBuilder AddTransient<T>(Func<Container, T> factory)
         {
             return AddTransient(factory, typeof(T));
+        }
+        
+        // Scoped
+        
+        public ContainerBuilder AddScoped(Type concrete, params Type[] contracts)
+        {
+            return Add(concrete, contracts, new ScopedTypeResolver(concrete));
+        }
+
+        public ContainerBuilder AddScoped(Type concrete)
+        {
+            return AddScoped(concrete, concrete);
+        }
+
+        public ContainerBuilder AddScoped<T>(Func<Container, T> factory, params Type[] contracts)
+        {
+            var resolver = new ScopedFactoryResolver(Proxy);
+            return Add(typeof(T), contracts, resolver);
+
+            object Proxy(Container container)
+            {
+                return factory.Invoke(container);
+            }
+        }
+
+        public ContainerBuilder AddScoped<T>(Func<Container, T> factory)
+        {
+            return AddScoped(factory, typeof(T));
         }
 
         public bool HasBinding(Type type)

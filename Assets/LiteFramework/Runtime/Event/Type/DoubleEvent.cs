@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Double")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Double")]
     public class DoubleEvent : GenericEvent<double>
     {
         

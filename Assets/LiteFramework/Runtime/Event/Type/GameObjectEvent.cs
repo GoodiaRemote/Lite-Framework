@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/GameObject")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/GameObject")]
     public class GameObjectEvent : GenericEvent<GameObject>
     {
         

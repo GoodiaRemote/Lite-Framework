@@ -1,6 +1,6 @@
 {
     "name": "LiteFramework.Editor",
-    "rootNamespace": "LiteFramework",
+    "rootNamespace": "",
     "references": [
         "GUID:37493b80f9279e245bacee29823963aa"
     ],

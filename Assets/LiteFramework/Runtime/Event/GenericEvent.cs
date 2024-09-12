@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 #endif
 
-namespace LiteFramework.Event
+namespace LiteFramework.Runtime.Event
 {
     public abstract class GenericEvent<T> : DescriptionSO
     {

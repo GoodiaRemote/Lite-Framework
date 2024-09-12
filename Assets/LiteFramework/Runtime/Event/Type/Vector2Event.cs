@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Vector2")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Vector2")]
     public class Vector2Event : GenericEvent<Vector2>
     {
         

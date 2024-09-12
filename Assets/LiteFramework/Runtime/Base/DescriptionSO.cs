@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Base
 {
-    [CreateAssetMenu(fileName = "NewDescription")]
+    [CreateAssetMenu(menuName = "LiteFramework/DescriptionSO", fileName = "NewDescription")]
     public class DescriptionSO : SerializedScriptableObject
     {
         [BoxGroup("Description")]

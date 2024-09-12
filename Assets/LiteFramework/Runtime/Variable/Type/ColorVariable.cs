@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Variable.Type
 {
-    [CreateAssetMenu(menuName = "Variable/Color")]
+    [CreateAssetMenu(menuName = "LiteFramework/Variable/Color")]
     public class ColorVariable : GenericVariable<Color>
     {
         

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Quaternion")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Quaternion")]
     public class QuaternionEvent : GenericEvent<Quaternion>
     {
         

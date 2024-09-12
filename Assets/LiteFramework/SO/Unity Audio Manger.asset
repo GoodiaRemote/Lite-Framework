@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6648f44e174c4e888ff11a64581cc6, type: 3}
+  m_Name: Unity Audio Manger
+  m_EditorClassIdentifier: 
+  _sceneLoadedEvent: {fileID: 11400000, guid: 66ec3aaec5e5f5242bc38fc93f251ff1, type: 2}
+  _audioObjectPrefab: {fileID: 8767637354625660389, guid: 6a603b468eb6b4549b1ccd7e6dd35a57, type: 3}
+  _musicSourcePrefab: {fileID: 4370551102575014382, guid: baba451795d4b9345a5fe7c669617b31, type: 3}

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Float")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Float")]
     public class FloatEvent : GenericEvent<float>
     {
     }

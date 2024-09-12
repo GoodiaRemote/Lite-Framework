@@ -13,5 +13,17 @@ namespace LiteFramework.Runtime.ObjectPool
                 _ => null
             };
         }
+
+        public static void TryReleaseToPool<T>(this T obj) where T : Object
+        {
+            if (obj is IPoolale<T> iPool)
+            {
+                iPool.ReleaseToPool();
+            }
+            else
+            {
+                Debug.LogWarning("Object of type " + obj.GetType() + " not implement IPoolale");
+            }
+        }
     }
 }

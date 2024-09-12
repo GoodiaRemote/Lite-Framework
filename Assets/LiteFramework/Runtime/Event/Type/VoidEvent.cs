@@ -7,9 +7,9 @@ using UnityEngine;
 using System.Collections.Generic;
 #endif
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Void")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Void")]
     public class VoidEvent : DescriptionSO
     {
         private Action _event;

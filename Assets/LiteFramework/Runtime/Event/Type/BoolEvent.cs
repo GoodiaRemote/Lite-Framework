@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LiteFramework.Event.Type
+namespace LiteFramework.Runtime.Event.Type
 {
-    [CreateAssetMenu(menuName = "Event/Bool")]
+    [CreateAssetMenu(menuName = "LiteFramework/Event/Bool")]
     public class BoolEvent : GenericEvent<bool>
     {
         

@@ -15,7 +15,7 @@ namespace LiteFramework.Editor.Utils
             {
                 config = ScriptableObject.CreateInstance<T>();
                 config.Description = ObjectNames.NicifyVariableName(typeof(T).Name);
-                string path = "Assets/Resources/GameConfig/";
+                string path = "Assets/LiteFramework/Resources/GameConfig/";
                 if (!Directory.Exists(path)) Directory.CreateDirectory(path);
                 AssetDatabase.CreateAsset(config, $"{path}/{typeof(T).Name}.asset");
                 AssetDatabase.SaveAssets();

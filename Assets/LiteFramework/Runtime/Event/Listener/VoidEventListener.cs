@@ -1,8 +1,8 @@
-﻿using LiteFramework.Event.Type;
+﻿using LiteFramework.Runtime.Event.Type;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LiteFramework.Event.Listener
+namespace LiteFramework.Runtime.Event.Listener
 {
     [AddComponentMenu("EventListener/"+ nameof(VoidEventListener))]
     public class VoidEventListener : MonoBehaviour

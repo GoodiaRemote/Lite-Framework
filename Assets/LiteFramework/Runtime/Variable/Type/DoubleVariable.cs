@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LiteFramework.Runtime.Variable.Type
 {
-    [CreateAssetMenu(menuName = "Variable/Double")]
+    [CreateAssetMenu(menuName = "LiteFramework/Variable/Double")]
     public class DoubleVariable : ScriptableObject
     {
         

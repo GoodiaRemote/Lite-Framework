@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LiteFramework.Event
+namespace LiteFramework.Runtime.Event
 {
     public abstract class GenericEventListener<T> : MonoBehaviour
     {

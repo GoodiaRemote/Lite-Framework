@@ -1,4 +1,4 @@
-﻿namespace GadGame.Define
+﻿namespace LiteFramework.Define
 {
 	public static class MusicDefine
 	{

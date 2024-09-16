@@ -1,6 +1,6 @@
 {
   "name": "com.goodiaremote.liteframework",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": { "name": "GoodiaRemote", "url": "https://github.com/GoodiaRemote" },
   "displayName": "Lite Framework",
   "unity": "2022.3",

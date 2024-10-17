@@ -15,7 +15,7 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [
-        "UNITASK_DOTWEEN_SUPPORT"
+        "LITE_FRAMEWORK"
     ],
     "versionDefines": [],
     "noEngineReferences": false

@@ -11,9 +11,7 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [
-        "UNITY_EDITOR",
-        "DOTWEEN",
-        "UNITASK_DOTWEEN_SUPPORT"
+        "LITE_FRAMEWORK"
     ],
     "versionDefines": [],
     "noEngineReferences": false

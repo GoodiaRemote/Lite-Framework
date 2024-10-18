@@ -16,8 +16,6 @@ namespace LiteFramework.Editor.GUI
     
     public class EditorTableView<T> : TreeView
     {
-        private readonly string _sortedColumnIndexStateKey = "EditorTableView_sortedColumnIndex_"+ Guid.NewGuid();
-        
         private MultiColumnHeader _multiColumnHeader;
         private readonly List<Column> _columnDefs = new();
         private MultiColumnHeaderState.Column[] _columns;
@@ -30,7 +28,7 @@ namespace LiteFramework.Editor.GUI
         {
             internal MultiColumnHeaderState.Column column;
             internal DrawItem onDraw;
-            internal Comparison<T> onSort;
+            internal Func<T, object> onSort;
             
             public Column SetMaxWidth(float maxWidth)
             {
@@ -56,10 +54,16 @@ namespace LiteFramework.Editor.GUI
                 return this;
             }
             
-            public Column SetSorting(Comparison<T> onSort)
+            public Column SetSorting(Func<T, object> onSort)
             {
                 this.onSort = onSort;
                 column.canSort = true;
+                return this;
+            }
+
+            public Column SetTextAlignment(TextAlignment textAlignment)
+            {
+                column.headerTextAlignment = textAlignment;
                 return this;
             }
         }
@@ -75,7 +79,6 @@ namespace LiteFramework.Editor.GUI
             showAlternatingRowBackgrounds = true;
             showBorder = true;
             header.ResizeToFit();
-            header.sortedColumnIndex = SessionState.GetInt(_sortedColumnIndexStateKey, 1);
         }
 
         public Column AddColumn(string title, int minWidth, DrawItem onDrawItem)
@@ -104,7 +107,9 @@ namespace LiteFramework.Editor.GUI
             _columns = _columnDefs.Select((def) => def.column).ToArray();
             multiColumnHeader = new MultiColumnHeader(new MultiColumnHeaderState(_columns));
             multiColumnHeader.visibleColumnsChanged += (multiColumnHeader) => multiColumnHeader.ResizeToFit();
+            multiColumnHeader.sortingChanged += HeaderSortingChanged;
             multiColumnHeader.ResizeToFit();
+            multiColumnHeader.sortedColumnIndex = 0;
             Reload();
         }
 
@@ -128,6 +133,13 @@ namespace LiteFramework.Editor.GUI
             return root;
         }
 
+        public void DrawTableGUI(Rect rect, IEnumerable<T> data)
+        {
+            _items = data;
+            ReloadAndSort();
+            OnGUI(rect);
+        }
+
         public override void OnGUI(Rect rect)
         {
             if (multiColumnHeader == null)
@@ -137,16 +149,11 @@ namespace LiteFramework.Editor.GUI
             if(!_isInitialized) return;
             base.OnGUI(rect);
         }
-
-        public void UpdateViewData(IEnumerable<T> data)
-        {
-            _items = data;
-            ReloadAndSort();
-        }
         
         private void ReloadAndSort()
         {
             var currentSelected = state.selectedIDs;
+            HeaderSortingChanged(multiColumnHeader);
             Reload();
             state.selectedIDs = currentSelected;
         }
@@ -163,6 +170,20 @@ namespace LiteFramework.Editor.GUI
                 var labelStyle = args.selected ? EditorStyles.whiteLabel : EditorStyles.label;
                 labelStyle.alignment = TextAnchor.MiddleLeft;
                 _columnDefs[columnIndex].onDraw?.Invoke(rect, item.Data);
+            }
+        }
+
+        private void HeaderSortingChanged(MultiColumnHeader header)
+        {
+            if(header == null) return;
+            var index = header.sortedColumnIndex;
+            var ascending = header.IsSortedAscending(index);
+
+            var sortCompare = _columnDefs[index]?.onSort;
+            if (sortCompare != null)
+            {
+                var orderedItems = ascending ? _items.OrderBy(sortCompare) : _items.OrderByDescending(sortCompare);
+                _items = orderedItems;
             }
         }
     }

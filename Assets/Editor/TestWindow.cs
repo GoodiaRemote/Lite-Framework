@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.DemiEditor;
 using LiteFramework.Editor.GUI;
 using UnityEditor;
 using UnityEngine;
@@ -21,10 +22,10 @@ namespace Editor
         
         private Test[] _tests = new Test[]
         {
-            new Test(){ Name = "Test1"},
-            new Test() { Name = "Test2"},
-            new Test(){ Name = "Test3"},
-            new Test(){ Name = "Test4"},
+            new Test(){ Name = "Test1",Value = 1},
+            new Test() { Name = "Test2", Value = 4},
+            new Test(){ Name = "Test3", Value = 7},
+            new Test(){ Name = "Test4", Value = 8},
         };
         
         [MenuItem("Test/Table")]
@@ -40,15 +41,15 @@ namespace Editor
             _tableView = new EditorTableView<Test>();
             _tableView.AddColumn("Name", 10, (rect, item) =>
             {
-                item.Name = EditorGUI.TextField(rect, item.Name);
-            });
+                EditorGUI.LabelField(rect, item.Name);
+            }).SetSorting((item => item.Name));
             _tableView.AddColumn("Value", 10, (rect, item) =>
             {
-                item.Value = EditorGUI.IntField(rect, item.Value);
-            });
+                EditorGUI.LabelField(rect, item.Value.ToString());
+            }).SetSorting((item)=> item.Value);
             _tableView.AddColumn("GameObject", 10, (rect, item) =>
             {
-                item.Color = EditorGUI.ColorField(rect, item.Color);
+                EditorGUI.LabelField(rect, item.Color.ToString());
             });
             _splitState = LiteFrameworkEditorGUILayout.CreateSplitterState(new float[] { 75f, 25f }, new int[] { 32, 32 }, null);
         }
@@ -57,8 +58,8 @@ namespace Editor
         {
             LiteFrameworkEditorGUILayout.BeginHorizontalSplit(_splitState);
             {
-                _tableView.UpdateViewData(_tests);
-                _tableView?.OnGUI(EditorGUILayout.GetControlRect(GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)));
+                var rect = EditorGUILayout.GetControlRect(GUILayout.ExpandHeight(true));
+                _tableView?.DrawTableGUI(rect, _tests);
                 LiteFrameworkEditorGUILayout.HorizontalSplitter();
             }
             LiteFrameworkEditorGUILayout.EndHorizontalSplit();

@@ -112,14 +112,14 @@ namespace LiteFramework.Editor.GUI
         
         public static void EndHorizontalSplit()
         {
-            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.EndVertical();
             endHorizontalSplit.Value.Invoke(null, Type.EmptyTypes);
         }
 
         public static void HorizontalSplitter()
         {
             EditorGUILayout.EndVertical();
-            EditorGUILayout.BeginHorizontal(GroupStyle, GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            EditorGUILayout.BeginVertical(GroupStyle, GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
         }
 
         #endregion

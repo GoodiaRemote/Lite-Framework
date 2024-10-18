@@ -61,7 +61,7 @@ namespace LiteFramework.Editor.GUI
                 return this;
             }
 
-            public Column SetTextAlignment(TextAlignment textAlignment)
+            public Column SetHeaderAlignment(TextAlignment textAlignment)
             {
                 column.headerTextAlignment = textAlignment;
                 return this;
@@ -166,9 +166,6 @@ namespace LiteFramework.Editor.GUI
             {
                 var rect = args.GetCellRect(visibleColumnIndex);
                 var columnIndex = args.GetColumn(visibleColumnIndex);
-
-                var labelStyle = args.selected ? EditorStyles.whiteLabel : EditorStyles.label;
-                labelStyle.alignment = TextAnchor.MiddleLeft;
                 _columnDefs[columnIndex].onDraw?.Invoke(rect, item.Data);
             }
         }

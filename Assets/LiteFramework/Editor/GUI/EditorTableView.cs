@@ -21,7 +21,36 @@ namespace LiteFramework.Editor.GUI
         private MultiColumnHeaderState.Column[] _columns;
         private bool _isInitialized;
         private IEnumerable<T> _items;
+        private List<TableViewItem<T>> _tableViewItems = new();
+        private Func<T, string, bool> _searchFunc;
+
+        public bool MultiSelect { get; set; }
+
+        public bool ShowAlternatingRowBackgrounds
+        {
+            get => showAlternatingRowBackgrounds;
+            set => showAlternatingRowBackgrounds = value;
+        }
+
+        public bool ShowBorder
+        {
+            get => showBorder;
+            set => showBorder = value;
+        }
         
+        public List<T> SelectedItems
+        {
+            get
+            {
+                if (state.selectedIDs.Count > 0)
+                {
+                    return _tableViewItems.Where(item => state.selectedIDs.Contains(item.id)).Select(item => item.Data).ToList();
+                }
+
+                return new List<T>();
+            }
+        }
+
         public delegate void DrawItem(Rect rect, T item);
 
         public class Column
@@ -81,6 +110,11 @@ namespace LiteFramework.Editor.GUI
             header.ResizeToFit();
         }
 
+        public void SetSearchFunc(Func<T, string, bool> searchFunc)
+        {
+            _searchFunc = searchFunc;
+        }
+
         public Column AddColumn(string title, int minWidth, DrawItem onDrawItem)
         {
             Column columnDef = new Column()
@@ -113,14 +147,19 @@ namespace LiteFramework.Editor.GUI
             Reload();
         }
 
+        protected override bool CanMultiSelect(TreeViewItem item)
+        {
+            return MultiSelect;
+        }
+
         protected override TreeViewItem BuildRoot()
         {
             var root = new TreeViewItem { depth = -1 };
-            var children = new List<TreeViewItem>();
+            _tableViewItems.Clear();
             for (int i = 0; i < _items.Count(); i++)
             {
                 var data = _items.ElementAt(i);
-                children.Add(new TableViewItem<T>
+                _tableViewItems.Add(new TableViewItem<T>
                 {
                     id = i,
                     Data = data,
@@ -128,7 +167,7 @@ namespace LiteFramework.Editor.GUI
                 });
                 
             }
-            root.children = children;
+            root.children = _tableViewItems.Cast<TreeViewItem>().ToList();
             _isInitialized = true;
             return root;
         }
@@ -158,6 +197,12 @@ namespace LiteFramework.Editor.GUI
             state.selectedIDs = currentSelected;
         }
         
+
+        protected override bool DoesItemMatchSearch(TreeViewItem item, string search)
+        {
+            return _searchFunc?.Invoke(((TableViewItem<T>)item).Data, search) ?? false;
+        }
+
         protected override void RowGUI(RowGUIArgs args)
         {
             var item = args.item as TableViewItem<T>;

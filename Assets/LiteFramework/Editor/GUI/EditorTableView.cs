@@ -26,6 +26,12 @@ namespace LiteFramework.Editor.GUI
 
         public bool MultiSelect { get; set; }
 
+        public float RowHeight
+        {
+            get => rowHeight;
+            set => rowHeight = value;
+        }
+
         public bool ShowAlternatingRowBackgrounds
         {
             get => showAlternatingRowBackgrounds;
@@ -210,6 +216,7 @@ namespace LiteFramework.Editor.GUI
             for (var visibleColumnIndex = 0; visibleColumnIndex < args.GetNumVisibleColumns(); visibleColumnIndex++)
             {
                 var rect = args.GetCellRect(visibleColumnIndex);
+                CenterRectUsingSingleLineHeight(ref rect);
                 var columnIndex = args.GetColumn(visibleColumnIndex);
                 _columnDefs[columnIndex].onDraw?.Invoke(rect, item.Data);
             }
